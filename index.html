@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scientific Calculator</title>
+            <link rel="stylesheet" type="text/css href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<style>
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 98vh;
+    user-select: none;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 42%, rgba(0,212,255,1) 80%);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+    0%
+    {
+        background-position: 0% 50%;
+    }
+    50%
+    {
+        background-position: 100% 50%;
+    }
+    100%
+    {
+        background-position: 0% 50%;
+    }
+    }
+    .container1 {
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 12px 12px 20px #00000020,
+                    12px 12px 20px #00000020;
+    }
+    .scifi {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        color: #8e8e8f;
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+        background: #ecf0f3;
+        background-position: auto;
+        border-radius: 6px;
+    }
+    .members {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        letter-spacing: 0.25em;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 6px;
+    }
+    .container2 {
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 12px 12px 20px #00000020,
+                    12px 12px 20px #00000020;
+    }
+    .content {
+        width: 100%;
+        margin-top: 1.7em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .row button {
+        width: 60px;
+        height: 30px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        margin: 5px;
+        border-radius: 4px;
+        transition: .1s;
+        box-shadow: 5px 5px 8px #00000020;
+    }
+    .row button:hover {
+        box-shadow: inset 5px 5px 8px rgba(16, 16, 16, .1),
+                    inset -5px -5px 8px #fff;
+        background: #fff;
+    }
+    .display #screen {
+        margin-bottom: .5em;
+        width: auto;
+        height: 70px;
+        font-size: 35px;
+        outline: none;
+        border: none;
+        text-align: right;
+        padding-right: .5em;
+        background: #ecf0f3;
+        border-radius: 6px;
+        box-shadow: inset 8px 8px 8px #cbced1,
+                    inset -8px -8px 8px #ffffff;
+    }
+    #equal {
+        background: blue;
+        color: #fff;
+    }
+    #equal:hover {
+        box-shadow: inset 5px 5px 8px darkblue,inset -5px -5px 8px darkblue;
+    }
+    #ac {
+        background: green;
+        color: black;
+        font-weight: bold;
+    }
+    #ac:hover {
+        box-shadow: inset 5px 5px 8px darkgreen,inset -5px -5px 8px darkgreen;
+    }
+    #ce {
+        background: red;
+        color: white;
+    }
+    #ce:hover {
+        box-shadow: inset 5px 5px 8px darkred,inset -5px -5px 8px darkred;
+    }
+</style>
+
+<body>
+    <div class="container1">
+        <div class="scifi">SCIENTIFIC CALCULATOR</strong>
+    </div>
+    <div class="members">
+        <i>
+            <h3>JEWEL B. TIMPUG</h3>
+            <h3>JOHN CARLO GONZALES</h3>
+            <h3>JAMESON L. ABAPO</h3>
+            <h3>JUN-JUN D. GUIAO, </h3>
+            <h3>JOHN ABRAHAM S. TUPAS</h3>
+        </i>
+    </div>
+    <div class="container2">
+        <div class="display">
+            <input id="screen" type="text" placeholder="0">
+        </div>
+        <div class="btns">
+            <div class="row">
+                <button id="ce" onclick="backspace()">CE</button>
+                <button onclick="fact()">x!</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button class="btn">%</button>
+                <button id="ac" onclick="screen.value=''">AC</button>
+            </div>
+
+            <div class="row">
+                <button onclick="sin()">sin</button>
+                <button onclick="pi()">π</button>
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">÷</button>
+            </div>
+
+            <div class="row">
+                <button onclick="cos()">cos</button>
+                <button onclick="log()">log</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">x</button>
+            </div>
+
+            <div class="row">
+                <button onclick="tan()">tan</button>
+                <button onclick="sqrt()">√</button>
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">-</button>
+            </div>
+
+            <div class="row">
+                <button onclick="e()">e</button>
+                <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span>
+                </button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                <button id="equal" onclick="screen.value=eval(screen.value)">=</button>
+                <button class="btn">+</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var screen = document.querySelector('#screen');
+    var btn = document.querySelectorAll('.btn');
+    for (item of btn) {
+        item.addEventListener('click', (e) => {
+            buttontext = e.target.innerText;
+            if (buttontext == 'x') {
+                buttontext = '*';
+            }
+            if (buttontext == '÷') {
+                buttontext = '/';
+            }
+            screen.value += buttontext;
+        });
+    }
+    function sin() {
+        screen.value = Math.sin(screen.value);
+    }
+    function cos() {
+        screen.value = Math.cos(screen.value);
+    }
+    function tan() {
+        screen.value = Math.tan(screen.value);
+    }
+    function pow() {
+        screen.value = Math.pow(screen.value, 2);
+    }
+    function sqrt() {
+        screen.value = Math.sqrt(screen.value, 2);
+    }
+    function log() {
+        screen.value = Math.log(screen.value);
+    }
+    function pi() {
+        screen.value = 3.14159265359;
+    }
+
+    function e() {
+        screen.value = 2.71828182846;
+    }
+    function fact() {
+        var i, num, f;
+        f = 1
+        num = screen.value;
+        for (i = 1; i <= num; i++) {
+            f = f * i;
+        }
+        i = i - 1;
+        screen.value = f;
+    }
+    function backspace() {
+        screen.value = screen.value.substr(0, screen.value.length - 1);
+    }
+</script>
+</html>
